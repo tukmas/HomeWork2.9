@@ -5,4 +5,5 @@ public interface Competing {
     void timeLap(String BestLapTime);
 
     void maxSpeed(String MaxSpeed);
+    void service (String command);
 }

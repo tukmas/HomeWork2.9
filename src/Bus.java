@@ -8,6 +8,10 @@ public class Bus  extends Transport <DriverD>{
 
     private ArrayList<Transport> busList;
 
+    public Bus(String brand) {
+        super(brand);
+    }
+
     public enum Capacity {
         ESPECIALLY_SMALL ("до 10 мест"),
         SMALL ("до 25 мест"),
@@ -112,6 +116,12 @@ public class Bus  extends Transport <DriverD>{
     public void maxSpeed(String MaxSpeed) {
         System.out.println("Максимальная скорость у автобуса");
     }
+
+    @Override
+    public void service(String command) {
+
+    }
+
     @Override
     public void printType() {
         System.out.println("Данных по транспортному средству недостаточно");
