@@ -1,22 +1,21 @@
 import java.util.*;
 
-public class Mechanic<T extends Transport> {
+public class Mechanic<R extends Transport & Competing> {
     private String name;
     private String company;
 
-        private static Map<Mechanic, Set<Competing>> competingTransport = new HashMap<>();
+    private static Map<Set<Mechanic>, Set<Transport>> transportMechanic = new HashMap<>();
 
-    public Mechanic(String Ivan) {
+    public Mechanic(String Name) {
+    }
+    public void service(R mechanic){
+        Set<Transport> transport = transportMechanic.getOrDefault(this, new HashSet<>());
+        transport.add(mechanic);
+        transportMechanic.put((Set<Mechanic>) this, transport);
     }
 
-    public static Map<Mechanic, Set<Competing>> getCompetingTransport() {
-        return competingTransport;
-    }
-
-    public void service(T Transport){
-        Set<Competing> competing = competingTransport.getOrDefault(this, new HashSet<>());
-        competing.add(Transport);
-        competingTransport.put(this, competing);
+    public static Map<Set<Mechanic>, Set<Transport>> getTransportMechanic() {
+        return transportMechanic;
     }
 
     public String getName() {

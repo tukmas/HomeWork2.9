@@ -1,25 +1,25 @@
 import java.util.*;
 
-public abstract class Transport <T extends Driver> implements Competing{
+public abstract class Transport <R extends Driver> implements Competing{
     private String brand;
     private String model;
-
     private float engineVolume;
+    private R mechanic;
 
-    private T driver;
-
-
-    private ArrayList <Mechanic> mechanic;
-
-    public void addMechanic (Mechanic mechanic){
-        this.mechanic.add(mechanic);
-        System.out.println(getBrand() + " обслуживает " + mechanic.getName());
+    public Transport(String brand) {
     }
 
-    public ArrayList<Mechanic> getMechanic() {
-
-        return new ArrayList<>(mechanic);
-    }
+//    private ArrayList <Mechanic> mechanic;
+//
+//    public void addMechanic (Mechanic mechanic){
+//        this.mechanic.add(mechanic);
+//        System.out.println(getBrand() + " обслуживает " + mechanic.getName());
+//    }
+//
+//    public ArrayList<Mechanic> getMechanic() {
+//
+//        return new ArrayList<>(mechanic);
+//    }
 
     public String getBrand() {
         return brand;
@@ -37,15 +37,15 @@ public abstract class Transport <T extends Driver> implements Competing{
         this.engineVolume = engineVolume;
     }
 
-    public T getDriver() {
-        return driver;
+    public R getMechanic() {
+        return mechanic;
     }
 
-    public void setDriver(T driver) {
-        this.driver = driver;
+    public void setMechanic(R mechanic) {
+        this.mechanic = mechanic;
     }
 
-    public Transport(String brand, String model, float engineVolume, T driver) {
+    public Transport(String brand, String model, float engineVolume, R mechanic) {
         if (brand != null) {
             this.brand = brand;
         } else {
@@ -61,7 +61,7 @@ public abstract class Transport <T extends Driver> implements Competing{
         } else {
             this.engineVolume = 1.5f;
         }
-        setDriver(driver);
+        setMechanic(mechanic);
     }
     public abstract void startedMoving();
 
@@ -85,11 +85,11 @@ public abstract class Transport <T extends Driver> implements Competing{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transport<?> transport = (Transport<?>) o;
-        return Float.compare(transport.engineVolume, engineVolume) == 0 && brand.equals(transport.brand) && model.equals(transport.model) && driver.equals(transport.driver) && mechanic.equals(transport.mechanic);
+        return Float.compare(transport.engineVolume, engineVolume) == 0 && brand.equals(transport.brand) && model.equals(transport.model) && mechanic.equals(transport.mechanic) && mechanic.equals(transport.mechanic);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, model, engineVolume, driver, mechanic);
+        return Objects.hash(brand, model, engineVolume, mechanic);
     }
 }

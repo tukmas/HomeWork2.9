@@ -110,6 +110,11 @@ public class Cars extends Transport <DriverB>{
     }
 
     @Override
+    public void service(String command) {
+
+    }
+
+    @Override
     public void printType() {
         System.out.println("Данных по транспортному средству недостаточно");
     }

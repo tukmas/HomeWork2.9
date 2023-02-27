@@ -93,6 +93,12 @@ public class Trucks extends Transport <DriverC>{
     public void maxSpeed(String MaxSpeed) {
         System.out.println("Максимальная скорость у грузового автомобиля");
     }
+
+    @Override
+    public void service(String command) {
+
+    }
+
     @Override
     public void printType() {
         System.out.println("Данных по транспортному средству недостаточно");
