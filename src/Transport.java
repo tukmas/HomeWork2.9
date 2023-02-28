@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.ArrayList;
 
 public abstract class Transport <T extends Driver> implements Competing{
     private String brand;
@@ -8,8 +8,10 @@ public abstract class Transport <T extends Driver> implements Competing{
 
     private T driver;
 
-
     private ArrayList <Mechanic> mechanic;
+
+    public Transport(String brand) {
+    }
 
     public void addMechanic (Mechanic mechanic){
         this.mechanic.add(mechanic);
@@ -80,16 +82,4 @@ public abstract class Transport <T extends Driver> implements Competing{
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Transport<?> transport = (Transport<?>) o;
-        return Float.compare(transport.engineVolume, engineVolume) == 0 && brand.equals(transport.brand) && model.equals(transport.model) && driver.equals(transport.driver) && mechanic.equals(transport.mechanic);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(brand, model, engineVolume, driver, mechanic);
-    }
 }

@@ -1,10 +1,15 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Bus  extends Transport <DriverD>{
     private int weight;
     private  int numberOfWheels;
     private String equipment;
     private String color;
+
+    public Bus(String brand) {
+        super(brand);
+    }
 
     private ArrayList<Transport> busList;
 
@@ -112,6 +117,12 @@ public class Bus  extends Transport <DriverD>{
     public void maxSpeed(String MaxSpeed) {
         System.out.println("Максимальная скорость у автобуса");
     }
+
+    @Override
+    public void service(String command) {
+
+    }
+
     @Override
     public void printType() {
         System.out.println("Данных по транспортному средству недостаточно");
@@ -120,6 +131,19 @@ public class Bus  extends Transport <DriverD>{
     @Override
     public void passDiagnostics() throws TransportTypeException {
         throw new TransportTypeException("Автобусы диагностику проходить не могу" + getBrand());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bus bus = (Bus) o;
+        return weight == bus.weight && numberOfWheels == bus.numberOfWheels && equipment.equals(bus.equipment) && color.equals(bus.color) && busList.equals(bus.busList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(weight, numberOfWheels, equipment, color, busList);
     }
 }
 

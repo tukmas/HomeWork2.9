@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Cars extends Transport <DriverB>{
     private String transmission;
@@ -7,6 +8,10 @@ public class Cars extends Transport <DriverB>{
 
     private int numberOfSeats;
     private ArrayList <Transport> carList;
+
+    public Cars(String brand) {
+        super(brand);
+    }
 
 
     public enum BodyType1 {
@@ -110,11 +115,29 @@ public class Cars extends Transport <DriverB>{
     }
 
     @Override
+    public void service(String command) {
+
+    }
+
+    @Override
     public void printType() {
         System.out.println("Данных по транспортному средству недостаточно");
     }
 
     @Override
     public void passDiagnostics() {System.out.println("Легковой атомобиль проходит диагностику");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cars cars = (Cars) o;
+        return numberOfSeats == cars.numberOfSeats && transmission.equals(cars.transmission) && bodyType.equals(cars.bodyType) && registrationNumber.equals(cars.registrationNumber) && carList.equals(cars.carList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(transmission, bodyType, registrationNumber, numberOfSeats, carList);
     }
 }
