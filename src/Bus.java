@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Bus  extends Transport <DriverD>{
     private int weight;
@@ -6,11 +7,11 @@ public class Bus  extends Transport <DriverD>{
     private String equipment;
     private String color;
 
-    private ArrayList<Transport> busList;
-
     public Bus(String brand) {
         super(brand);
     }
+
+    private ArrayList<Transport> busList;
 
     public enum Capacity {
         ESPECIALLY_SMALL ("до 10 мест"),
@@ -130,6 +131,19 @@ public class Bus  extends Transport <DriverD>{
     @Override
     public void passDiagnostics() throws TransportTypeException {
         throw new TransportTypeException("Автобусы диагностику проходить не могу" + getBrand());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bus bus = (Bus) o;
+        return weight == bus.weight && numberOfWheels == bus.numberOfWheels && equipment.equals(bus.equipment) && color.equals(bus.color) && busList.equals(bus.busList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(weight, numberOfWheels, equipment, color, busList);
     }
 }
 

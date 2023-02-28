@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Trucks extends Transport <DriverC>{
     private int loadClass;
@@ -23,6 +24,10 @@ public class Trucks extends Transport <DriverC>{
         public String toString() {
             return "Грузоподъемность: " + getCapacity();
         }
+    }
+
+    public Trucks(String brand) {
+        super(brand);
     }
 
     public int getLoadClass() {
@@ -107,5 +112,18 @@ public class Trucks extends Transport <DriverC>{
     @Override
     public void passDiagnostics() {
         System.out.println("Грузовой автомобиль проходит диагностику");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Trucks trucks = (Trucks) o;
+        return loadClass == trucks.loadClass && height == trucks.height && numberOfAxles == trucks.numberOfAxles && fuelType.equals(trucks.fuelType) && trucksList.equals(trucks.trucksList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(loadClass, height, fuelType, numberOfAxles, trucksList);
     }
 }

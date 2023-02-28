@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -11,6 +15,9 @@ public class Main {
             DriverD DriverD = new DriverD("driver №" + i, true, 10 + i);
             Bus Bus = new Bus("Mercedes", "Sprinter", 4, DriverD, 18000, 6,
                     "Максимальная", "Синий");
+            printInfo(Car);
+            printInfo(Trucks);
+            printInfo(Bus);
             Car.getCarList().add(Car);
             Trucks.getTrucksList().add(Trucks);
             Bus.getBusList().add(Bus);
@@ -19,11 +26,19 @@ public class Main {
             DriverB.getDrivers().add(new DriverB("Сергей"));
             for (Driver driver : DriverB.getDrivers()) {
                 System.out.println(driver.getName());
+
             }
-            Bus Mercedes = new Bus("Mercedes");
-            Mechanic<Bus> ivanMechanic = new Mechanic<>("Иван");
-            ivanMechanic.service(Mercedes);
-            System.out.println(Mechanic.getTransportMechanic());
         }
+
+
+        Cars Lada = new Cars("Lada");
+        Cars Gaz = new Cars("Gaz");
+        Mechanic<Cars> ivanMechanic = new Mechanic<>("Ivan");
+        System.out.println(Mechanic.getTransportMechanic());
+    }
+
+    private static void printInfo (Transport transport){
+        System.out.println("водитель " + transport.getDriver().getName() + " управляет автомобилем "
+                + transport.getBrand() + " и будет участвовать в заезде");
     }
 }
