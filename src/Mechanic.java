@@ -8,10 +8,6 @@ public class Mechanic<T extends Transport> {
 
     public Mechanic(String name) {
     }
-    public static HashMap<Transport, Mechanic> transportMechanic;
-    public static HashMap<Transport, Mechanic> getTransportMechanic() {
-        return transportMechanic;
-    }
 
     public String getName() {
         return name;
