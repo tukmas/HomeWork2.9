@@ -27,12 +27,16 @@ public class Main {
             for (Driver driver : DriverB.getDrivers()) {
                 System.out.println(driver.getName());
 
-                HashMap<Transport, Mechanic > transportMechanic = new HashMap<>();
-                Mechanic<Cars> ivanMechanic = new Mechanic("dima");
+                HashMap<Transport, Mechanic> transportMechanic = new HashMap<>();
+
+                Mechanic ivanMechanic = new Mechanic("Ivan", "Лукоил");
+                Mechanic ivanMechanic2 = new Mechanic("Ivan", "Лукоил");
                 transportMechanic.put(Car, ivanMechanic);
+                transportMechanic.put(Car, ivanMechanic2);
                 System.out.println(transportMechanic);
             }
         }
+
 
 //        HashMap<Transport, Mechanic> transportMechanic = new HashMap<>();
 //        Cars lada = new Cars("Lada");
