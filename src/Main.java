@@ -27,18 +27,22 @@ public class Main {
             for (Driver driver : DriverB.getDrivers()) {
                 System.out.println(driver.getName());
 
+                HashMap<Transport, Mechanic > transportMechanic = new HashMap<>();
+                Mechanic<Cars> ivanMechanic = new Mechanic("Ivan");
+                transportMechanic.put(Car, ivanMechanic);
+                System.out.println(transportMechanic);
             }
         }
 
-        HashMap<Transport, Mechanic> transportMechanic = new HashMap<>();
-        Cars lada = new Cars("Lada");
-        Cars gaz = new Cars("Gaz");
-        Mechanic<Cars> ivanMechanic = new Mechanic("Ivan");
-
-        transportMechanic.put(lada, ivanMechanic);
-        transportMechanic.put(gaz, ivanMechanic);
-
-        System.out.println(transportMechanic);
+//        HashMap<Transport, Mechanic> transportMechanic = new HashMap<>();
+//        Cars lada = new Cars("Lada");
+//        Cars gaz = new Cars("Gaz");
+//        Mechanic<Cars> ivanMechanic = new Mechanic("Ivan");
+//
+//        transportMechanic.put(lada, ivanMechanic);
+//        transportMechanic.put(gaz, ivanMechanic);
+//
+//        System.out.println(transportMechanic);
 
 //        ivanMechanic.service(lada);
 //        ivanMechanic.service(gaz);

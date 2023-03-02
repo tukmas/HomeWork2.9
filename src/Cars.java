@@ -134,7 +134,11 @@ public class Cars extends Transport <DriverB>{
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Cars cars = (Cars) o;
-        return numberOfSeats == cars.numberOfSeats && transmission.equals(cars.transmission) && bodyType.equals(cars.bodyType) && registrationNumber.equals(cars.registrationNumber) && carList.equals(cars.carList);
+        return Float.compare(cars.numberOfSeats, numberOfSeats) == 0
+                && Objects.equals(transmission, cars.transmission)
+                && Objects.equals(bodyType, cars.bodyType)
+                && Objects.equals(registrationNumber, cars.registrationNumber)
+                && Objects.equals(carList, cars.carList);
     }
 
     @Override
