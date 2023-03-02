@@ -30,15 +30,20 @@ public class Main {
             }
         }
 
-        HashMap<Transport, Mechanic> transportMechanic = new HashMap<>();
-        Cars Lada = new Cars("Lada");
-        Cars Gaz = new Cars("Gaz");
-        Mechanic<Cars> ivanMechanic = new Mechanic<>("Ivan");
+        HashMap<String, String> transportMechanic = new HashMap<>();
+//        Cars lada = new Cars("Lada");
+//        Cars gaz = new Cars("Gaz");
+//        Mechanic<Cars> ivanMechanic = new Mechanic("Ivan");
 
-        transportMechanic.put(Lada, ivanMechanic);
-        transportMechanic.put(Gaz, ivanMechanic);
+        transportMechanic.put("lada", "ivanMechanic");
+        transportMechanic.put("gaz", "ivanMechanic");
+//        transportMechanic.put(Mercedes, ivanMechanic);
 
         System.out.println(transportMechanic);
+
+//        ivanMechanic.service(lada);
+//        ivanMechanic.service(gaz);
+//        System.out.println(Transport.getTransportMechanic());
     }
 
     private static void printInfo (Transport transport){

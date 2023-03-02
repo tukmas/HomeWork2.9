@@ -7,9 +7,7 @@ public class Bus  extends Transport <DriverD>{
     private String equipment;
     private String color;
 
-    public Bus(String brand) {
-        super(brand);
-    }
+
 
     private ArrayList<Transport> busList;
 

@@ -26,9 +26,6 @@ public class Trucks extends Transport <DriverC>{
         }
     }
 
-    public Trucks(String brand) {
-        super(brand);
-    }
 
     public int getLoadClass() {
         return loadClass;
@@ -101,7 +98,6 @@ public class Trucks extends Transport <DriverC>{
 
     @Override
     public void service(String command) {
-
     }
 
     @Override

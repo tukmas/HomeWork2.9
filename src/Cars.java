@@ -132,12 +132,13 @@ public class Cars extends Transport <DriverB>{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Cars cars = (Cars) o;
         return numberOfSeats == cars.numberOfSeats && transmission.equals(cars.transmission) && bodyType.equals(cars.bodyType) && registrationNumber.equals(cars.registrationNumber) && carList.equals(cars.carList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(transmission, bodyType, registrationNumber, numberOfSeats, carList);
+        return Objects.hash(super.hashCode(), transmission, bodyType, registrationNumber, numberOfSeats, carList);
     }
 }
