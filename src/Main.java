@@ -29,8 +29,8 @@ public class Main {
 
                 HashMap<Transport, Mechanic> transportMechanic = new HashMap<>();
 
-                Mechanic ivanMechanic = new Mechanic("Ivan", "Лукоил");
-                Mechanic ivanMechanic2 = new Mechanic("Ivan", "Лукоил");
+                Mechanic ivanMechanic = new Mechanic("Ivan", "Лукойл");
+                Mechanic ivanMechanic2 = new Mechanic("Ivan", "Лукойл");
                 transportMechanic.put(Car, ivanMechanic);
                 transportMechanic.put(Car, ivanMechanic2);
                 System.out.println(transportMechanic);
