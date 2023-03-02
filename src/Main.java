@@ -28,7 +28,7 @@ public class Main {
                 System.out.println(driver.getName());
 
                 HashMap<Transport, Mechanic > transportMechanic = new HashMap<>();
-                Mechanic<Cars> ivanMechanic = new Mechanic("Ivan");
+                Mechanic<Cars> ivanMechanic = new Mechanic("dima");
                 transportMechanic.put(Car, ivanMechanic);
                 System.out.println(transportMechanic);
             }
