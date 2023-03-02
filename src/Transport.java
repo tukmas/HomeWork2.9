@@ -8,18 +8,20 @@ public abstract class Transport <T extends Driver> implements Competing{
 
     private T driver;
 
-
-    private ArrayList <Mechanic> mechanic;
-
-    public void addMechanic (Mechanic mechanic){
-        this.mechanic.add(mechanic);
-        System.out.println(getBrand() + " обслуживает " + mechanic.getName());
+    public Transport(String brand) {
     }
 
-    public ArrayList<Mechanic> getMechanic() {
-
-        return new ArrayList<>(mechanic);
-    }
+//    static HashMap<Transport, Set<Mechanic>> transportMechanic = new HashMap<>();
+//
+//    public void  service(Mechanic mechanic) {
+//    Set<Mechanic> mechanics = transportMechanic.getOrDefault(this, new HashSet<>());
+//    mechanics.add(mechanic);
+//    transportMechanic.put(this, mechanics);
+//}
+//
+//    public static HashMap<Transport, Set<Mechanic>> getTransportMechanic() {
+//        return transportMechanic;
+//    }
 
     public String getBrand() {
         return brand;
@@ -85,11 +87,12 @@ public abstract class Transport <T extends Driver> implements Competing{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transport<?> transport = (Transport<?>) o;
-        return Float.compare(transport.engineVolume, engineVolume) == 0 && brand.equals(transport.brand) && model.equals(transport.model) && driver.equals(transport.driver) && mechanic.equals(transport.mechanic);
+        return Float.compare(transport.engineVolume, engineVolume) == 0 && brand.equals(transport.brand) && model.equals(transport.model) && driver.equals(transport.driver);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, model, engineVolume, driver, mechanic);
+        return Objects.hash(brand, model, engineVolume, driver);
     }
+
 }

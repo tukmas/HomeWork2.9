@@ -1,22 +1,14 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
-public class Mechanic<T extends Transport> {
+public class Mechanic <T extends Transport> {
     private String name;
     private String company;
 
-        private static Map<Mechanic, Set<Competing>> competingTransport = new HashMap<>();
-
-    public Mechanic(String Ivan) {
-    }
-
-    public static Map<Mechanic, Set<Competing>> getCompetingTransport() {
-        return competingTransport;
-    }
-
-    public void service(T Transport){
-        Set<Competing> competing = competingTransport.getOrDefault(this, new HashSet<>());
-        competing.add(Transport);
-        competingTransport.put(this, competing);
+    public Mechanic(String name) {
+        this.name = name;
     }
 
     public String getName() {

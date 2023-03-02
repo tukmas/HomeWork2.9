@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -22,12 +26,26 @@ public class Main {
             DriverB.getDrivers().add(new DriverB("Сергей"));
             for (Driver driver : DriverB.getDrivers()) {
                 System.out.println(driver.getName());
+
             }
-            Mechanic<Bus> ivanMechanic = new Mechanic<>("Иван");
-            ivanMechanic.service(Bus);
-            System.out.println(Mechanic.getCompetingTransport());
         }
+
+        HashMap<String, String> transportMechanic = new HashMap<>();
+//        Cars lada = new Cars("Lada");
+//        Cars gaz = new Cars("Gaz");
+//        Mechanic<Cars> ivanMechanic = new Mechanic("Ivan");
+
+        transportMechanic.put("lada", "ivanMechanic");
+        transportMechanic.put("gaz", "ivanMechanic");
+//        transportMechanic.put(Mercedes, ivanMechanic);
+
+        System.out.println(transportMechanic);
+
+//        ivanMechanic.service(lada);
+//        ivanMechanic.service(gaz);
+//        System.out.println(Transport.getTransportMechanic());
     }
+
     private static void printInfo (Transport transport){
         System.out.println("водитель " + transport.getDriver().getName() + " управляет автомобилем "
                 + transport.getBrand() + " и будет участвовать в заезде");
