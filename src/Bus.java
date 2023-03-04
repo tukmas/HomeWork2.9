@@ -135,13 +135,18 @@ public class Bus  extends Transport <DriverD>{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Bus bus = (Bus) o;
-        return weight == bus.weight && numberOfWheels == bus.numberOfWheels && equipment.equals(bus.equipment) && color.equals(bus.color) && busList.equals(bus.busList);
+        return Float.compare(bus.weight, weight) == 0
+                && Objects.equals(numberOfWheels, bus.numberOfWheels)
+                && Objects.equals(equipment, bus.equipment)
+                && Objects.equals(color, bus.color)
+                && Objects.equals(busList, bus.busList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(weight, numberOfWheels, equipment, color, busList);
+        return Objects.hash(super.hashCode(), weight, numberOfWheels, equipment, color, busList);
     }
 }
 

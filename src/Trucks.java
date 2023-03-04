@@ -114,12 +114,17 @@ public class Trucks extends Transport <DriverC>{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Trucks trucks = (Trucks) o;
-        return loadClass == trucks.loadClass && height == trucks.height && numberOfAxles == trucks.numberOfAxles && fuelType.equals(trucks.fuelType) && trucksList.equals(trucks.trucksList);
+        return Float.compare(trucks.loadClass, loadClass) == 0
+                && Objects.equals(height, trucks.height)
+                && Objects.equals(numberOfAxles, trucks.numberOfAxles)
+                && Objects.equals(fuelType, trucks.fuelType)
+                && Objects.equals(trucksList, trucks.trucksList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(loadClass, height, fuelType, numberOfAxles, trucksList);
+        return Objects.hash(super.hashCode(), loadClass, height, fuelType, numberOfAxles, trucksList);
     }
 }
