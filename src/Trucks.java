@@ -122,7 +122,6 @@ public class Trucks extends Transport <DriverC>{
                 && Objects.equals(fuelType, trucks.fuelType)
                 && Objects.equals(trucksList, trucks.trucksList);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), loadClass, height, fuelType, numberOfAxles, trucksList);
