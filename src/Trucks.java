@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Trucks extends Transport <DriverC>{
     private int loadClass;
@@ -24,6 +25,7 @@ public class Trucks extends Transport <DriverC>{
             return "Грузоподъемность: " + getCapacity();
         }
     }
+
 
     public int getLoadClass() {
         return loadClass;
@@ -93,6 +95,11 @@ public class Trucks extends Transport <DriverC>{
     public void maxSpeed(String MaxSpeed) {
         System.out.println("Максимальная скорость у грузового автомобиля");
     }
+
+    @Override
+    public void service(String command) {
+    }
+
     @Override
     public void printType() {
         System.out.println("Данных по транспортному средству недостаточно");
@@ -101,5 +108,22 @@ public class Trucks extends Transport <DriverC>{
     @Override
     public void passDiagnostics() {
         System.out.println("Грузовой автомобиль проходит диагностику");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Trucks trucks = (Trucks) o;
+        return Float.compare(trucks.loadClass, loadClass) == 0
+                && Objects.equals(height, trucks.height)
+                && Objects.equals(numberOfAxles, trucks.numberOfAxles)
+                && Objects.equals(fuelType, trucks.fuelType)
+                && Objects.equals(trucksList, trucks.trucksList);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), loadClass, height, fuelType, numberOfAxles, trucksList);
     }
 }
